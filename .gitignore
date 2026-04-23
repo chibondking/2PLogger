@@ -1,0 +1,57 @@
+# CMake build directories
+build/
+cmake-build-*/
+out/
+
+# Qt build artifacts
+*.moc
+moc_*.cpp
+moc_*.h
+ui_*.h
+qrc_*.cpp
+
+# Compiled binaries and AppImage outputs
+*.AppImage
+*.appimage
+hamlogger
+2plogger
+
+# IDE directories
+.vscode/
+.idea/
+.clangd/
+.cache/
+compile_commands.json
+
+# macOS cruft
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# SQLite log files — never commit real operator logs
+*.db
+*.db-shm
+*.db-wal
+
+# Qt Creator per-user project files
+*.user
+*.user.*
+
+# Ninja build files (generated)
+build.ninja
+.ninja_deps
+.ninja_log
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+install_manifest.txt
+CTestTestfile.cmake
+
+# Packaging artifacts
+packaging/appimage/*.AppImage
+packaging/inno/*.exe
+
+# Catch2 test binaries
+tests/test_*
