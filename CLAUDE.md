@@ -25,7 +25,7 @@ touching CMakeLists.txt or any source files:
    - Build instructions (clone → cmake → ninja)
    - Runtime prerequisites (AetherSDR or rigctld daemon must be running for radio control)
    - UDP ecosystem overview (brief: what packets it sends/receives and why)
-   - License (GPL-2.0 to match the ham radio open source ecosystem convention)
+   - License (GPL-3.0 to match the ham radio open source ecosystem convention)
    - A note that this is WT2P's personal project, not affiliated with FlexRadio,
      CWops, or any other organization
 
