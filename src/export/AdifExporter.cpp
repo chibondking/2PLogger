@@ -1,5 +1,5 @@
 #include "export/AdifExporter.h"
-#include "log/LogBook.h"
+#include "log/QsoRecord.h"
 
 namespace TwoPLogger {
 

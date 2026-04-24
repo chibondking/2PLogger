@@ -9,6 +9,7 @@ if(NOT Catch2_FOUND)
     FetchContent_MakeAvailable(Catch2)
 endif()
 
+# Placeholder suite (no Qt dependency, uses Catch2WithMain)
 add_executable(2plogger_tests test_placeholder.cpp)
 target_include_directories(2plogger_tests PRIVATE ${CMAKE_SOURCE_DIR}/src)
 target_link_libraries(2plogger_tests PRIVATE
@@ -21,3 +22,6 @@ target_link_libraries(2plogger_tests PRIVATE
 include(CTest)
 include(Catch)
 catch_discover_tests(2plogger_tests)
+
+# Database / log layer tests (needs QCoreApplication — provides own main)
+add_subdirectory(log)

@@ -1,27 +1,14 @@
 #pragma once
+#include <QList>
 #include <QObject>
 #include <QString>
-#include <QDateTime>
+#include <memory>
+#include <optional>
+#include "log/QsoRecord.h"
 
 namespace TwoPLogger {
 
-struct QsoRecord {
-    qint64    id = 0;
-    QString   callsign;
-    quint64   freqHz = 0;
-    QString   band;
-    QString   mode;
-    QString   rstSent  = QStringLiteral("599");
-    QString   rstRcvd  = QStringLiteral("599");
-    QString   dxccEntity;
-    QString   continent;
-    int       cqZone   = 0;
-    int       ituZone  = 0;
-    QString   exch1;
-    QString   exch2;
-    QDateTime timestampUtc;
-    bool      isDupe   = false;
-};
+class DatabaseManager;
 
 class LogBook : public QObject {
     Q_OBJECT
@@ -32,6 +19,19 @@ public:
     bool open(const QString& path);
     void close();
     bool isOpen() const;
+
+    std::optional<int64_t> createLog(const LogRecord& rec);
+    std::optional<int64_t> logQso(QsoRecord qso);  // fills loggedAt; emits qsoLogged
+    bool isDupe(const QString& callsign, const QString& band, int logId);
+    QList<QsoRecord> recentQsos(int logId, int limit = 50);
+    QList<QsoRecord> allQsos(int logId);
+
+signals:
+    void qsoLogged(const QsoRecord& qso);
+
+private:
+    std::unique_ptr<DatabaseManager> m_db;
+    std::optional<LogRecord>         m_currentLog;
 };
 
 } // namespace TwoPLogger
