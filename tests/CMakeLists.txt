@@ -25,3 +25,9 @@ catch_discover_tests(2plogger_tests)
 
 # Database / log layer tests (needs QCoreApplication — provides own main)
 add_subdirectory(log)
+
+# DXCC lookup tests (pure C++20, no Qt)
+add_subdirectory(dxcc)
+
+# Radio mode/profile tests (pure C++20, no Qt)
+add_subdirectory(radio)

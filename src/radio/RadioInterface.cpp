@@ -1,11 +1,7 @@
 #include "radio/RadioInterface.h"
 
+// RadioInterface is a pure abstract QObject. All implementation is in subclasses.
+// This file exists so MOC has a translation unit to emit the vtable and meta-object into.
+
 namespace TwoPLogger {
-
-RadioInterface::RadioInterface(QObject* parent)
-    : QObject(parent)
-{}
-
-RadioInterface::~RadioInterface() = default;
-
 } // namespace TwoPLogger
